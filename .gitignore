@@ -1,0 +1,4 @@
+tools/parser/input/*
+tools/parser/output/*
+tools/datafilter/input/*
+tools/datafilter/output/*
