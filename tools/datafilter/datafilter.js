@@ -1,15 +1,11 @@
 const fs = require("fs");
-const { mkdirp } = require('mkdirp');
-
-mkdirp("input")
-mkdirp("output")
 
 const dir = fs.readdir("input", (err, files) => {
     if (err) console.log(err)
 
     files.forEach(file => {
         const data = fs.readFileSync("input/"+file, 'utf-8')
-        .replace(/[^А-я0-9.,!?%$():\n ]/g, '')
+        .replace(/[^А-я0-9.,"!#?%$():\n ]/g, '')
         .replace(/^\d+\s?\n/gm,'')
         .replace(/^\n+/gm,'\n');
         fs.writeFile(`output/${file}`, data, (err) => { if (err) console.log(err) })
